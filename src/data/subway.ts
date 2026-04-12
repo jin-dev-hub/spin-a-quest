@@ -1,15 +1,20 @@
+export type RegionGroup = "서울" | "수도권" | "대구" | "부산" | "대전";
+
 export interface SubwayLine {
   id: string;
   name: string;
   color: string; // HSL string for branding
-  stations: { name: string; region: "서울" | "수도권" }[];
+  regionGroup: RegionGroup; 
+  stations: { name: string; region: RegionGroup }[];
 }
 
 export const subwayLines: SubwayLine[] = [
+  // --- 서울 & 수도권 ---
   {
     id: "1",
     name: "1호선",
     color: "hsl(220, 80%, 40%)",
+    regionGroup: "수도권",
     stations: [
       { name: "서울역", region: "서울" }, { name: "시청", region: "서울" }, { name: "종각", region: "서울" },
       { name: "종로3가", region: "서울" }, { name: "종로5가", region: "서울" }, { name: "동대문", region: "서울" },
@@ -26,6 +31,7 @@ export const subwayLines: SubwayLine[] = [
     id: "2",
     name: "2호선",
     color: "hsl(130, 65%, 40%)",
+    regionGroup: "수도권",
     stations: [
       { name: "시청", region: "서울" }, { name: "을지로입구", region: "서울" }, { name: "을지로3가", region: "서울" },
       { name: "을지로4가", region: "서울" }, { name: "동대문역사문화공원", region: "서울" },
@@ -48,6 +54,7 @@ export const subwayLines: SubwayLine[] = [
     id: "3",
     name: "3호선",
     color: "hsl(25, 85%, 50%)",
+    regionGroup: "수도권",
     stations: [
       { name: "지축", region: "서울" }, { name: "구파발", region: "서울" }, { name: "연신내", region: "서울" },
       { name: "불광", region: "서울" }, { name: "녹번", region: "서울" }, { name: "홍제", region: "서울" },
@@ -67,6 +74,7 @@ export const subwayLines: SubwayLine[] = [
     id: "4",
     name: "4호선",
     color: "hsl(200, 75%, 48%)",
+    regionGroup: "수도권",
     stations: [
       { name: "당고개", region: "서울" }, { name: "상계", region: "서울" }, { name: "노원", region: "서울" },
       { name: "창동", region: "서울" }, { name: "쌍문", region: "서울" }, { name: "수유", region: "서울" },
@@ -85,6 +93,7 @@ export const subwayLines: SubwayLine[] = [
     id: "5",
     name: "5호선",
     color: "hsl(270, 55%, 50%)",
+    regionGroup: "수도권",
     stations: [
       { name: "방화", region: "서울" }, { name: "개화산", region: "서울" }, { name: "김포공항", region: "서울" },
       { name: "송정", region: "서울" }, { name: "마곡", region: "서울" }, { name: "발산", region: "서울" },
@@ -107,6 +116,7 @@ export const subwayLines: SubwayLine[] = [
     id: "6",
     name: "6호선",
     color: "hsl(30, 60%, 45%)",
+    regionGroup: "수도권",
     stations: [
       { name: "응암", region: "서울" }, { name: "역촌", region: "서울" }, { name: "불광", region: "서울" },
       { name: "독바위", region: "서울" }, { name: "연신내", region: "서울" }, { name: "구산", region: "서울" },
@@ -127,6 +137,7 @@ export const subwayLines: SubwayLine[] = [
     id: "7",
     name: "7호선",
     color: "hsl(80, 55%, 40%)",
+    regionGroup: "수도권",
     stations: [
       { name: "장암", region: "서울" }, { name: "도봉산", region: "서울" }, { name: "수락산", region: "서울" },
       { name: "마들", region: "서울" }, { name: "노원", region: "서울" }, { name: "중계", region: "서울" },
@@ -148,6 +159,7 @@ export const subwayLines: SubwayLine[] = [
     id: "8",
     name: "8호선",
     color: "hsl(340, 65%, 48%)",
+    regionGroup: "수도권",
     stations: [
       { name: "암사", region: "서울" }, { name: "천호", region: "서울" }, { name: "강동구청", region: "서울" },
       { name: "몽촌토성", region: "서울" }, { name: "잠실", region: "서울" }, { name: "석촌", region: "서울" },
@@ -161,6 +173,7 @@ export const subwayLines: SubwayLine[] = [
     id: "9",
     name: "9호선",
     color: "hsl(42, 75%, 48%)",
+    regionGroup: "수도권",
     stations: [
       { name: "개화", region: "서울" }, { name: "김포공항", region: "서울" }, { name: "공항시장", region: "서울" },
       { name: "신방화", region: "서울" }, { name: "마곡나루", region: "서울" }, { name: "양천향교", region: "서울" },
@@ -181,6 +194,7 @@ export const subwayLines: SubwayLine[] = [
     id: "gyeongui",
     name: "경의중앙선",
     color: "hsl(175, 55%, 42%)",
+    regionGroup: "수도권",
     stations: [
       { name: "서울역", region: "서울" }, { name: "공덕", region: "서울" }, { name: "홍대입구", region: "서울" },
       { name: "가좌", region: "서울" }, { name: "디지털미디어시티", region: "서울" },
@@ -196,6 +210,7 @@ export const subwayLines: SubwayLine[] = [
     id: "shinbundang",
     name: "신분당선",
     color: "hsl(350, 75%, 50%)",
+    regionGroup: "수도권",
     stations: [
       { name: "강남", region: "서울" }, { name: "양재", region: "서울" }, { name: "양재시민의숲", region: "서울" },
       { name: "청계산입구", region: "서울" },
@@ -206,12 +221,185 @@ export const subwayLines: SubwayLine[] = [
       { name: "신사", region: "서울" },
     ],
   },
+
+  // --- 대구 ---
+  {
+    id: "daegu-1",
+    name: "대구 1호선",
+    color: "hsl(0, 100%, 40%)", // 빨간색
+    regionGroup: "대구",
+    stations: [
+      { name: "설화명곡", region: "대구" }, { name: "화원", region: "대구" }, { name: "대곡", region: "대구" },
+      { name: "진천", region: "대구" }, { name: "상인", region: "대구" }, { name: "성당못", region: "대구" },
+      { name: "영대병원", region: "대구" }, { name: "명덕", region: "대구" }, { name: "반월당", region: "대구" },
+      { name: "중앙로", region: "대구" }, { name: "대구역", region: "대구" }, { name: "동대구역", region: "대구" },
+      { name: "아양교", region: "대구" }, { name: "신기", region: "대구" }, { name: "안심", region: "대구" },
+    ],
+  },
+  {
+    id: "daegu-2",
+    name: "대구 2호선",
+    color: "hsl(100, 100%, 35%)", // 초록색
+    regionGroup: "대구",
+    stations: [
+      { name: "문양", region: "대구" }, { name: "다사", region: "대구" }, { name: "계명대", region: "대구" },
+      { name: "성서산업단지", region: "대구" }, { name: "용산", region: "대구" }, { name: "죽전", region: "대구" },
+      { name: "두류", region: "대구" }, { name: "반고개", region: "대구" }, { name: "청라언덕", region: "대구" },
+      { name: "반월당", region: "대구" }, { name: "경대병원", region: "대구" }, { name: "범어", region: "대구" },
+      { name: "만촌", region: "대구" }, { name: "담티", region: "대구" }, { name: "대공원", region: "대구" },
+      { name: "사월", region: "대구" }, { name: "정평", region: "대구" }, { name: "임당", region: "대구" },
+      { name: "영남대", region: "대구" },
+    ],
+  },
+  {
+    id: "daegu-3",
+    name: "대구 3호선",
+    color: "hsl(45, 100%, 50%)", // 노란색
+    regionGroup: "대구",
+    stations: [
+      { name: "칠곡경대병원", region: "대구" }, { name: "팔거", region: "대구" }, { name: "칠곡운암", region: "대구" },
+      { name: "매천", region: "대구" }, { name: "팔달", region: "대구" }, { name: "공단", region: "대구" },
+      { name: "팔달시장", region: "대구" }, { name: "원대", region: "대구" }, { name: "북구청", region: "대구" },
+      { name: "달성공원", region: "대구" }, { name: "서문시장", region: "대구" }, { name: "청라언덕", region: "대구" },
+      { name: "남산", region: "대구" }, { name: "명덕", region: "대구" }, { name: "건들바위", region: "대구" },
+      { name: "대봉교", region: "대구" }, { name: "수성시장", region: "대구" }, { name: "어린이세상", region: "대구" },
+      { name: "황금", region: "대구" }, { name: "수성못", region: "대구" }, { name: "지산", region: "대구" },
+      { name: "범물", region: "대구" }, { name: "용지", region: "대구" },
+    ],
+  },
+  // --- 대구 4호선 (계획 - 엑스코선) ---
+  // {
+  //   id: "daegu-4",
+  //   name: "대구 4호선(예정)",
+  //   color: "hsl(200, 100%, 40%)", // 하늘색 계열
+  //   regionGroup: "대구",
+  //   stations: [
+  //     { name: "수성구민운동장", region: "대구" }, { name: "범어", region: "대구" }, { name: "MBC네거리", region: "대구" },
+  //     { name: "동대구역", region: "대구" }, { name: "파티마병원", region: "대구" }, { name: "경북대", region: "대구" },
+  //     { name: "엑스코", region: "대구" }, { name: "금호워터폴리스", region: "대구" }, { name: "이시아폴리스", region: "대구" },
+  //   ],
+  // },
+  // // --- 대구 5호선 (계획 - 순환선) ---
+  // {
+  //   id: "daegu-5",
+  //   name: "대구 5호선(예정)",
+  //   color: "hsl(280, 50%, 45%)", // 보라색 계열
+  //   regionGroup: "대구",
+  //   stations: [
+  //     { name: "서대구역", region: "대구" }, { name: "평리", region: "대구" }, { name: "두류", region: "대구" },
+  //     { name: "안지랑", region: "대구" }, { name: "현충로", region: "대구" }, { name: "영대병원", region: "대구" },
+  //     { name: "희망교", region: "대구" }, { name: "황금", region: "대구" }, { name: "만촌", region: "대구" },
+  //     { name: "동구청", region: "대구" }, { name: "복현", region: "대구" }, { name: "노원", region: "대구" },
+  //     { name: "만평", region: "대구" },
+  //   ],
+  // },
+
+  // --- 부산 ---
+  {
+    id: "busan-1",
+    name: "부산 1호선",
+    color: "hsl(20, 90%, 50%)", // 주황색
+    regionGroup: "부산",
+    stations: [
+      { name: "다대포해수욕장", region: "부산" }, { name: "신평", region: "부산" }, { name: "하단", region: "부산" },
+      { name: "남포", region: "부산" }, { name: "중앙", region: "부산" }, { name: "부산역", region: "부산" },
+      { name: "초량", region: "부산" }, { name: "서면", region: "부산" }, { name: "부전", region: "부산" },
+      { name: "양정", region: "부산" }, { name: "시청", region: "부산" }, { name: "연산", region: "부산" },
+      { name: "동래", region: "부산" }, { name: "명륜", region: "부산" }, { name: "온천장", region: "부산" },
+      { name: "부산대", region: "부산" }, { name: "구서", region: "부산" }, { name: "노포", region: "부산" },
+    ],
+  },
+  {
+    id: "busan-2",
+    name: "부산 2호선",
+    color: "hsl(100, 60%, 45%)", // 연두색
+    regionGroup: "부산",
+    stations: [
+      { name: "장산", region: "부산" }, { name: "중동", region: "부산" }, { name: "해운대", region: "부산" },
+      { name: "벡스코", region: "부산" }, { name: "센텀시티", region: "부산" }, { name: "민락", region: "부산" },
+      { name: "수영", region: "부산" }, { name: "광안", region: "부산" }, { name: "경성대부경대", region: "부산" },
+      { name: "대연", region: "부산" }, { name: "문현", region: "부산" }, { name: "전포", region: "부산" },
+      { name: "서면", region: "부산" }, { name: "가야", region: "부산" }, { name: "주례", region: "부산" },
+      { name: "사상", region: "부산" }, { name: "덕천", region: "부산" }, { name: "호포", region: "부산" },
+      { name: "양산", region: "부산" },
+    ],
+  },
+  {
+    id: "busan-3",
+    name: "부산 3호선",
+    color: "hsl(35, 80%, 45%)", // 고동색계열 주황
+    regionGroup: "부산",
+    stations: [
+      { name: "수영", region: "부산" }, { name: "망미", region: "부산" }, { name: "배산", region: "부산" },
+      { name: "연산", region: "부산" }, { name: "거제", region: "부산" }, { name: "종합운동장", region: "부산" },
+      { name: "사직", region: "부산" }, { name: "미남", region: "부산" }, { name: "만덕", region: "부산" },
+      { name: "덕천", region: "부산" }, { name: "구포", region: "부산" }, { name: "강서구청", region: "부산" },
+      { name: "대저", region: "부산" },
+    ],
+  },
+  {
+    id: "busan-4",
+    name: "부산 4호선",
+    color: "hsl(200, 80%, 40%)", // 파란색
+    regionGroup: "부산",
+    stations: [
+      { name: "미남", region: "부산" }, { name: "동래", region: "부산" }, { name: "수안", region: "부산" },
+      { name: "낙민", region: "부산" }, { name: "충렬사", region: "부산" }, { name: "명장", region: "부산" },
+      { name: "서동", region: "부산" }, { name: "금사", region: "부산" }, { name: "농산물시장", region: "부산" },
+      { name: "석대", region: "부산" }, { name: "영산대", region: "부산" }, { name: "윗반송", region: "부산" },
+      { name: "고촌", region: "부산" }, { name: "안평", region: "부산" },
+    ],
+  },
+  {
+    id: "donghae",
+    name: "동해선",
+    color: "hsl(210, 90%, 55%)", // 밝은 파란색
+    regionGroup: "부산",
+    stations: [
+      { name: "부전", region: "부산" }, { name: "거제해맞이", region: "부산" }, { name: "거제", region: "부산" },
+      { name: "교대", region: "부산" }, { name: "동래", region: "부산" }, { name: "안락", region: "부산" },
+      { name: "부산원동", region: "부산" }, { name: "재송", region: "부산" }, { name: "센텀", region: "부산" },
+      { name: "벡스코", region: "부산" }, { name: "신해운대", region: "부산" }, { name: "송정", region: "부산" },
+      { name: "오시리아", region: "부산" }, { name: "기장", region: "부산" }, { name: "일광", region: "부산" },
+      { name: "태화강", region: "부산" },
+    ],
+  },
+  {
+    id: "gimhae",
+    name: "김해경전철",
+    color: "hsl(140, 50%, 45%)", // 녹색
+    regionGroup: "부산",
+    stations: [
+      { name: "사상", region: "부산" }, { name: "괘법르네시떼", region: "부산" }, { name: "공항", region: "부산" },
+      { name: "덕두", region: "부산" }, { name: "대저", region: "부산" }, { name: "평강", region: "부산" },
+      { name: "대사", region: "부산" }, { name: "불암", region: "부산" }, { name: "지내", region: "부산" },
+      { name: "김해시청", region: "부산" }, { name: "박물관", region: "부산" }, { name: "연지공원", region: "부산" },
+      { name: "가야대", region: "부산" },
+    ],
+  },
+
+  // --- 대전 ---
+  {
+    id: "daejeon-1",
+    name: "대전 1호선",
+    color: "hsl(120, 60%, 35%)", // 진녹색
+    regionGroup: "대전",
+    stations: [
+      { name: "판암", region: "대전" }, { name: "신흥", region: "대전" }, { name: "대동", region: "대전" },
+      { name: "대전역", region: "대전" }, { name: "중앙로", region: "대전" }, { name: "중구청", region: "대전" },
+      { name: "서대전네거리", region: "대전" }, { name: "오룡", region: "대전" }, { name: "용문", region: "대전" },
+      { name: "탄방", region: "대전" }, { name: "시청", region: "대전" }, { name: "정부청사", region: "대전" },
+      { name: "갈마", region: "대전" }, { name: "월평", region: "대전" }, { name: "갑천", region: "대전" },
+      { name: "유성온천", region: "대전" }, { name: "구암", region: "대전" }, { name: "현충원", region: "대전" },
+      { name: "노은", region: "대전" }, { name: "지족", region: "대전" }, { name: "반석", region: "대전" },
+    ],
+  },
 ];
 
 export const foodPresets = [
-  "한식", "중식", "일식", "양식", "분식", "멕시칸", "동남아", "카페/디저트",
+  "한식", "중식", "일식", "양식",
 ];
 
 export const activityPresets = [
-  "방탈출", "보드게임", "영화관", "코인노래방", "산책", "전시회", "팝업스토어", "실내스포츠",
+  "방탈출", "보드게임", "영화관", "코인노래방", "산책", "전시회", "팝업스토어", "실내스포츠", "카페", "쇼핑"
 ];

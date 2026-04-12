@@ -8,7 +8,7 @@ const Index = () => {
       {/* Header */}
       <header className="text-center pt-10 pb-6 px-4">
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-          Next<span className="text-primary">Step</span>
+          Step<span className="text-primary">Picker</span>
         </h1>
         <p className="text-muted-foreground mt-2 text-sm md:text-base">
           어디로 갈지, 뭘 할지 고민될 때 — 랜덤으로 결정!
