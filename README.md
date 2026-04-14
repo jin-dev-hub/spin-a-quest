@@ -1,3 +1,57 @@
-# Welcome to your Lovable project
+# StepPicker
+#### velog: https://velog.io/@kes02/데이트-할일-랜덤-뽑기
+사용자의 결정 장애를 해결해 주는 **랜덤 선택 툴킷**입니다. 수도권, 부산, 대구, 대전 등 전국 주요 도시의 지하철 호선과 역을 랜덤으로 뽑아주며, 식사 메뉴나 활동 등 개인적인 할 일 목록도 커스텀하여 결정할 수 있습니다.
 
-TODO: Document your project here
+## 주요 기능 (Key Features)
+
+### 1. 🚇 지하철 호선 랜덤 선택
+* **지역별 필터링**: 수도권, 부산, 대구 등 원하는 지역의 호선만 선택 가능합니다.
+* **전체 선택/해제**: 터치 한 번으로 해당 지역의 모든 호선을 빠르게 선택하거나 해제할 수 있습니다.
+* **아코디언 UI**: 화면 공간을 효율적으로 사용하기 위해 선택 영역을 접고 펼 수 있습니다.
+
+### 2. 📍 역 랜덤 선택
+* **호선 연동**: 선택한 호선에 포함된 역들 중에서만 랜덤으로 결과가 나옵니다.
+* **수도권 통합 검색**: '수도권' 선택 시 서울 지역 역까지 포함하여 넓은 범위에서 장소를 추천받을 수 있습니다.
+
+### 3. 🎯 랜덤 할 일 (Todo Picker)
+* **프리셋 기능**: '음식', '활동' 등 자주 찾는 카테고리를 클릭 한 번으로 불러옵니다.
+* **커스텀 리스트**: 최대 10개까지 사용자가 직접 할 일을 입력하고 관리할 수 있습니다.
+* **초기화**: 버튼 하나로 입력한 리스트와 결과를 깨끗이 비울 수 있습니다.
+
+### 4. 🔗 결과 공유 기능
+* **URL 파라미터 공유**: 랜덤으로 나온 결과값과 내가 설정한 리스트를 URL에 담아 친구에게 공유할 수 있습니다. 링크를 받은 상대방은 내가 본 화면을 그대로 확인할 수 있습니다.
+
+## 📱 모바일 최적화 (Mobile Optimized)
+* **iPhone 12 Pro 기준 모바일 대응**: 다양한 모바일 기기 해상도에서 UI가 깨지지 않도록 레이아웃을 최적화했습니다.
+* **터치 피드백**: 모바일 환경에서 버튼 클릭 시 'Sticky Hover' 현상을 방지하고 직관적인 터치 피드백을 제공합니다.
+
+## 🛠 기술 스택 (Tech Stack)
+* **Framework**: React / Next.js
+* **Language**: TypeScript
+* **Styling**: Tailwind CSS
+* **UI Components**: shadcn/ui
+* **Animation**: Framer Motion
+* **Icons**: Lucide React
+
+## 🚀 로컬에서 시작하기 (Getting Started)
+
+1. 저장소를 클론합니다.
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   ```
+2. 의존성 라이브러리를 설치합니다.
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. 개발 서버를 실행합니다.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+---
+
+**Project by [kes02]**
