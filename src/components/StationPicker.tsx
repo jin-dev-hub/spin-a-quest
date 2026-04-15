@@ -12,7 +12,7 @@ const StationPicker = () => {
   const [region, setRegion] = useState<RegionGroup>("수도권");
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<string | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false); // 아코디언 상태
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -71,14 +71,16 @@ const StationPicker = () => {
 
   return (
       <Card className="border-0 shadow-lg overflow-hidden">
-        {/* 아코디언 헤더 */}
         <CardHeader
-            className="cursor-pointer hover:bg-gray-50 transition-colors py-4 px-5"
+            // 수정사항: hover 효과 및 cursor-pointer 제거, select-none 추가
+            className="py-4 px-5 select-none"
             onClick={() => setIsExpanded(!isExpanded)}
         >
           <CardTitle className="text-lg md:text-xl flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 font-bold">📍 랜덤 역 뽑기</div>
-            {isExpanded ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+            <div className="p-1">
+              {isExpanded ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+            </div>
           </CardTitle>
         </CardHeader>
 
@@ -91,12 +93,12 @@ const StationPicker = () => {
                   transition={{ duration: 0.3 }}
               >
                 <CardContent className="space-y-4 pt-0 px-5 pb-5">
-                  {/* 지역 필터 버튼 */}
                   <div className="flex gap-1">
                     {(["서울", "수도권", "부산", "대구", "대전"] as RegionGroup[]).map((r) => (
                         <Button
                             key={r}
                             variant={region === r ? "default" : "secondary"}
+                            disabled={isSpinning}
                             className={`flex-1 h-10 text-[13px] px-0 min-w-0 ${region !== r && "bg-gray-100"}`}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -108,8 +110,11 @@ const StationPicker = () => {
                     ))}
                   </div>
 
-                  {/* 호선 선택 */}
-                  <Select value={selectedLineId} onValueChange={setSelectedLineId}>
+                  <Select
+                      value={selectedLineId}
+                      onValueChange={setSelectedLineId}
+                      disabled={isSpinning}
+                  >
                     <SelectTrigger className="h-11">
                       <SelectValue placeholder="호선 선택" />
                     </SelectTrigger>
@@ -125,7 +130,6 @@ const StationPicker = () => {
                     </SelectContent>
                   </Select>
 
-                  {/* 결과 박스: 높이 최소화 */}
                   <div className="bg-[#e5e7eb] rounded-lg py-1 px-4 flex items-center justify-center min-h-[44px]">
                     <div className="w-full flex justify-center">
                       <SlotMachine
@@ -137,7 +141,6 @@ const StationPicker = () => {
                     </div>
                   </div>
 
-                  {/* 실행 및 공유 버튼 */}
                   <div className="flex gap-2">
                     <Button
                         onClick={(e) => {
@@ -145,10 +148,15 @@ const StationPicker = () => {
                           spin();
                         }}
                         disabled={isSpinning || filteredStations.length === 0}
-                        className="flex-1 h-12 font-bold text-white active:scale-95 transition-transform"
-                        style={{ backgroundColor: selectedLine?.color || "#000" }}
+                        className={`flex-1 h-12 font-bold transition-all active:scale-95 
+                          ${isSpinning ? "!bg-white !text-black border-2" : "text-white hover:brightness-90"}`}
+                        style={{
+                          backgroundColor: isSpinning ? "white" : (selectedLine?.color || "#000"),
+                          borderColor: isSpinning ? "#e5e7eb" : "transparent"
+                        }}
                     >
-                      <Shuffle className="mr-2 h-4 w-4" />역 뽑기
+                      <Shuffle className="mr-2 h-4 w-4" />
+                      {isSpinning ? "뽑는 중..." : "역 뽑기"}
                     </Button>
                     {result && (
                         <Button
