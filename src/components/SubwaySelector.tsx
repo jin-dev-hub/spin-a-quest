@@ -83,7 +83,7 @@ const SubwaySelector = () => {
                 <CardContent className="space-y-4 pt-0 px-5 pb-5">
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-                      {(["서울", "수도권", "부산", "대구", "대전"] as RegionGroup[]).map((r) => (
+                      {(["수도권", "부산", "대구", "대전"] as RegionGroup[]).map((r) => (
                           <Button
                               key={r}
                               variant={region === r ? "default" : "secondary"}
