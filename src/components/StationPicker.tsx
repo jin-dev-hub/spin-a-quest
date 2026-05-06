@@ -17,7 +17,10 @@ const StationPicker = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const sharedStation = params.get("stationResult");
-    if (sharedStation) setResult(sharedStation);
+    if (sharedStation) {
+      setResult(sharedStation);
+      setIsExpanded(true);
+    }
   }, []);
 
   const availableLines = useMemo(() => {
@@ -25,6 +28,9 @@ const StationPicker = () => {
       return subwayLines.filter((l) =>
           l.stations.some((s) => s.region === "서울")
       );
+    }
+    if (region === "수도권") {
+      return subwayLines.filter((l) => l.regionGroup === "수도권");
     }
     return subwayLines.filter((l) => l.regionGroup === region);
   }, [region]);
@@ -44,9 +50,14 @@ const StationPicker = () => {
 
   const filteredStations = useMemo(() => {
     if (!selectedLine || !selectedLine.stations) return [];
+
     if (region === "서울") {
       return selectedLine.stations.filter((s) => s.region === "서울");
     }
+    if (region === "수도권") {
+      return selectedLine.stations.filter((s) => s.region === "서울" || s.region === "수도권");
+    }
+
     return selectedLine.stations.filter((s) => s.region === region);
   }, [selectedLine, region]);
 

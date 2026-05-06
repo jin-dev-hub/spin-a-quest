@@ -1,4 +1,4 @@
-import SubwaySelector from "@/components/SubwaySelector";
+import SubwayPicker from "@/components/SubwayPicker.tsx";
 import StationPicker from "@/components/StationPicker";
 import TodoPicker from "@/components/TodoPicker";
 
@@ -17,7 +17,7 @@ const Index = () => {
 
       {/* Cards */}
       <main className="max-w-lg mx-auto px-4 pb-12 space-y-6">
-        <SubwaySelector />
+        <SubwayPicker />
         <StationPicker />
         <TodoPicker />
       </main>

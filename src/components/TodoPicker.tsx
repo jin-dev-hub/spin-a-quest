@@ -19,11 +19,14 @@ const TodoPicker = () => {
     const sharedItems = params.get("items");
     const sharedResult = params.get("todoResult");
 
-    if (sharedItems) {
-      setItems(sharedItems.split(","));
-    }
-    if (sharedResult) {
-      setResult(sharedResult);
+    if (sharedItems || sharedResult) {
+      if (sharedItems) {
+        setItems(sharedItems.split(","));
+      }
+      if (sharedResult) {
+        setResult(sharedResult);
+      }
+      setIsExpanded(true);
     }
   }, []);
 
