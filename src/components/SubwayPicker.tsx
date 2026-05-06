@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shuffle, Share2, ChevronDown, ChevronUp } from "lucide-react";
 
-const SubwaySelector = () => {
+const SubwayPicker = () => {
   const [region, setRegion] = useState<RegionGroup>("수도권");
   const [selectedLines, setSelectedLines] = useState<string[]>([]);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -15,9 +15,9 @@ const SubwaySelector = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const sharedStation = params.get("stationResult");
-    if (sharedStation) {
-      setResult(sharedStation);
+    const sharedLine = params.get("lineResult");
+    if (sharedLine) {
+      setResult(sharedLine);
       setIsExpanded(true);
     }
   }, []);
@@ -186,4 +186,4 @@ const SubwaySelector = () => {
   );
 };
 
-export default SubwaySelector;
+export default SubwayPicker;
