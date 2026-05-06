@@ -26,6 +26,9 @@ const StationPicker = () => {
           l.stations.some((s) => s.region === "서울")
       );
     }
+    if (region === "수도권") {
+      return subwayLines.filter((l) => l.regionGroup === "수도권");
+    }
     return subwayLines.filter((l) => l.regionGroup === region);
   }, [region]);
 
@@ -44,9 +47,14 @@ const StationPicker = () => {
 
   const filteredStations = useMemo(() => {
     if (!selectedLine || !selectedLine.stations) return [];
+
     if (region === "서울") {
       return selectedLine.stations.filter((s) => s.region === "서울");
     }
+    if (region === "수도권") {
+      return selectedLine.stations.filter((s) => s.region === "서울" || s.region === "수도권");
+    }
+
     return selectedLine.stations.filter((s) => s.region === region);
   }, [selectedLine, region]);
 
