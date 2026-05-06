@@ -15,8 +15,11 @@ const SubwaySelector = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const sharedResult = params.get("lineResult");
-    if (sharedResult) setResult(sharedResult);
+    const sharedStation = params.get("stationResult");
+    if (sharedStation) {
+      setResult(sharedStation);
+      setIsExpanded(true);
+    }
   }, []);
 
   useEffect(() => {

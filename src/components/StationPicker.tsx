@@ -17,7 +17,10 @@ const StationPicker = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const sharedStation = params.get("stationResult");
-    if (sharedStation) setResult(sharedStation);
+    if (sharedStation) {
+      setResult(sharedStation);
+      setIsExpanded(true);
+    }
   }, []);
 
   const availableLines = useMemo(() => {
