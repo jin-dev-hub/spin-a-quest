@@ -1,6 +1,7 @@
 import SubwayPicker from "@/components/SubwayPicker.tsx";
 import StationPicker from "@/components/StationPicker";
 import TodoPicker from "@/components/TodoPicker";
+import PlacePicker from "@/components/PlacePicker";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
         <SubwayPicker />
         <StationPicker />
         <TodoPicker />
+        <PlacePicker />
       </main>
     </div>
   );
