@@ -1,0 +1,4 @@
+# 원본과 중간 산출물은 커밋하지 않는다. README 참고
+muni_full.json
+municipalities.json
+__pycache__/
